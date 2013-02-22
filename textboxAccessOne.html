@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+      	$("#button").click(function() {
+      		$("#type").val("You entered the first box!");
+      	});
+      });
+      
+      $(document).ready(function() {
+      	$("#reset").click(function() {
+      		$("input[type=text]").val("");
+      		$("textarea").val("")
+      	});
+      });
+      
+      $(document).ready(function() {
+      	$("#type textarea, #type[type='text']:visible:enabled:first").focus();
+      })
+  
+    </script>
+
+  </head>
+  <body>
+    <textarea type="text" id="type" value="Text area"></textarea>  
+ 	<input type="button" id="button" name="button" value="Magic">  
+ 	<input type="button" id="reset" name="Reset" value="Reset">
+  </body>
+</html>
+
+
+
