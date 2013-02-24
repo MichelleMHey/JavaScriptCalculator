@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+
+      //functin to perform tip calculation
+      function tipCalculator() {
+      	//variable to store values retrieved from text field
+      	var dollarAmount = $("#amount").val();
+      
+
+      	//calculate the amount with 15% tip
+      	var tipOne = dollarAmount * .15;
+
+      	//calculate the amount with 25% tip
+      	var tipTwo = dollarAmount * .25;
+
+      	//calcuates the total of the 15% and 25% with the dollar amount individually
+      	var totalOne = Number(tipOne) + Number(dollarAmount);
+      	var totalTwo = Number(tipTwo) + Number(dollarAmount);
+
+      	//stores the above variables in the disabled text fields
+      	$("#tipOne").val(totalOne.toFixed(2));
+      	$("#tipTwo").val(totalTwo.toFixed(2));
+
+     	return false;
+
+      };
+      //attaches function to the forms submit event
+      	$("#tipCalc").submit(tipCalculator);
+
+
+    </script>
+
+  </head>
+  <body>
+    <form id="tipCalc">
+      <p>Dollar Amount: <input id="amount" type="text"></p>
+      <p>Total w/ 15% Tip: <input id="tipOne" type="text"disabled="disabled"></p>
+      <p>Total w/ 25% Tip: <input id="tipTwo" type="text" disabled="disabled"></p>
+      <p><input type="button" value="Submit" onClick="tipCalculator(this.form);"></p>	
+    </form> 
+  </body>
+</html>
+
+
+
