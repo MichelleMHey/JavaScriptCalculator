@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <script type="text/javascript">
+      var runningNumber = 0;
+
+      var storing = 0;
+
+      function addNum() {
+        runningNum();
+        var b = tempNum();
+        runningNumber += b;
+        update();
+      };
+
+      function subNum() {
+        runningNum();
+        var b = tempNum();
+        runningNumber -= b;
+        update();
+      };
+
+      function multNum() {
+        runningNum();
+        var b = tempNum();
+        runningNumber *= b;
+        update();
+      };
+
+      function divNum() {
+        runningNum();
+        var b = tempNum();
+        runningNumber /= b;
+        update();
+      };
+
+      function sqNum() {
+        runningNum();
+        var b = tempNum();
+        runningNumber *= runningNumber;
+        update();
+      };
+
+      function tempNum() {
+        return + document.getElementById("temp").value;
+      };
+
+      function runningNum() {
+        runningNumber = + document.getElementById("running").value;
+      };
+
+      function update() {
+        document.getElementById("running").value = runningNumber;
+        document.getElementById("temp").value = "";
+        console.log(runningNumber);
+      };
+
+      function storeNum() {
+        storing = runningNumber;
+        document.getElementById("running").value = "";
+      };
+
+      function recallRun() {
+        runningNumber = storing;
+        update();
+      };
+
+      function recallTemp() {
+        document.getElementById("temp").value = storing;
+      };
+
+      function clear() {
+        storing = 0;
+      };
+
+      function clearCalc() {
+        runningNumber = 0;
+        update();
+      };
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <form id ="calculator">
+      <input type="text" id="running">
+      <input type="text" id="temp">
+
+      <input type="button" value="ADD" onclick="addNum()">
+      <input type="button" value="SUB" onclick="subNum()">
+      <input type="button" value="MUL" onclick="multNum()">
+      <input type="button" value="DIV" onclick="divNum()">
+      <input type="button" value="SQ" onclick="sqNum()">
+
+      <input type="button" value="store" onclick="storeNum()">
+      <input type="button" value="recallToRunning" onclick="recallRun()">
+      <input type="button" value="recallToTemp" onclick="recallTemp()">
+      <input type="button" value="clearStore" onclick="clear()">
+      <input type="button" value="clearButton" onclick="clearCalc()">
+    </form>
+
+  </body>
+</html>
